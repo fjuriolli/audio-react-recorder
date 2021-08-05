@@ -154,15 +154,6 @@ export default class AudioReactRecorder extends React.Component {
       if (!self.tested) {
         self.tested = true
         // if this reduces to 0 we are not getting any sound
-        if (!left.reduce((a, b) => a + b)) {
-          console.log('Error: There seems to be an issue with your Mic')
-          // clean up;
-          self.stop()
-          self.stream.getTracks().forEach(function (track) {
-            track.stop()
-          })
-          // self.context.closeMic()
-        }
       }
       // we clone the samples
       self.leftchannel.push(new Float32Array(left))
